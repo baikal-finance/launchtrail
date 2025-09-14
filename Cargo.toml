@@ -1,23 +1,26 @@
 [package]
 name = "launchtrail"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 
 [dependencies]
-candid = "0.7"
+candid = "0.10"
 hex = "0.4"
 hmac-sha256 = "1.1"
-ic-cdk = "0.5"
-ic-cdk-macros = "0.5"
+ic-cdk = "0.17"
+ic-cdk-macros = "0.17"
 serde = "1.0"
 serde_bytes = "0.11"
-spnr-lib = "0.2"
+spnr-lib = "0.3"
 
 [target.'cfg(unix)'.dependencies]
-clap = { version = "3.1", features = [ "derive" ] }
-ic-agent = "0.15"
+ciborium = "0.2.2"
+clap = { version = "4.5", features = ["derive"] }
+ic-agent = "0.40"
+ic-certificate-verification = "3.0"
 leb128 = "0.2"
-serde-bytes-repr = "0.1"
+minicbor = "0.26.3"
+serde-bytes-repr = "0.3"
 serde_cbor = "0.11"
 serde_json = { version = "1.0" }
 tokio = { version = "1.8", features = [ "full" ] }

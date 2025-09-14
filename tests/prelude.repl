@@ -17,9 +17,9 @@ function deploy(id, wasm, did, arg) {
 identity private "../dist/private.pem";
 let launchtrail = create_canister();
 import did = "2vxsx-fae" as "../dist/launchtrail.did";
-let _ = deploy(launchtrail, file "../dist/launchtrail.wasm", did, record { bucket_size = 1000; max_buckets = 1000; "config" = record { min_schedule = 0; submitters = vec { private }; revokers = vec { private }; }; });
+let _ = deploy(launchtrail, file("../dist/launchtrail.wasm"), did, record { bucket_size = 1000; max_buckets = 1000; "config" = record { min_schedule = 0; submitters = vec { private }; revokers = vec { private }; }; });
 
-function submit(canister, method, requires) {
+function submit(canister, method, requires, payment) {
   call launchtrail.submit(record {
     canister = canister;
     method = method;
@@ -29,7 +29,7 @@ function submit(canister, method, requires) {
     activates = variant { In = 1_000_000 }; 
     revokers = null;
     executors = null;
-    payment = 0;
+    payment = payment;
     url = "";
   })
 };

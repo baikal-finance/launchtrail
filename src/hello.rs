@@ -1,5 +1,5 @@
 ///! A test canister.
-use ic_cdk::export::candid::candid_method;
+use candid::candid_method;
 use ic_cdk_macros::*;
 
 #[query]

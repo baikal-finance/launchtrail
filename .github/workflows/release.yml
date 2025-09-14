@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        rust: [ '1.58.1' ]
+        rust: [ '1.86.0' ]
         os: [ ubuntu-latest, macos-latest ]
         include:
           - os: ubuntu-latest
@@ -43,15 +43,15 @@ jobs:
     - name: Install binaryen (Linux)
       run: |
         set -e
-        curl -L https://github.com/WebAssembly/binaryen/releases/download/version_105/binaryen-version_105-x86_64-linux.tar.gz | tar zxf -
-        echo "`pwd`/binaryen-version_105/bin" > $GITHUB_PATH
+        curl -L https://github.com/WebAssembly/binaryen/releases/download/version_124/binaryen-version_124-x86_64-linux.tar.gz | tar zxf -
+        echo "`pwd`/binaryen-version_124/bin" > $GITHUB_PATH
       if: contains(matrix.os, 'ubuntu')
 
     - name: Install binaryen (OS X)
       run: |
         set -e
-        curl -L https://github.com/WebAssembly/binaryen/releases/download/version_105/binaryen-version_105-x86_64-macos.tar.gz | tar xzf -
-        echo "`pwd`/binaryen-version_105/bin" > $GITHUB_PATH
+        curl -L https://github.com/WebAssembly/binaryen/releases/download/version_124/binaryen-version_124-x86_64-macos.tar.gz | tar xzf -
+        echo "`pwd`/binaryen-version_124/bin" > $GITHUB_PATH
       if: contains(matrix.os, 'macos')
 
     - name: Build

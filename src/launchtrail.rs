@@ -10,11 +10,8 @@
 //!
 //! Please see <https://github.com/spinner-cash/launchtrail> for more information.
 use hex::FromHex;
-use ic_cdk::export::{
-    candid::{candid_method, CandidType},
-    serde::{Deserialize, Serialize},
-    Principal,
-};
+use candid::{candid_method, CandidType, Principal};
+use serde::{Deserialize, Serialize};
 use ic_cdk_macros::*;
 use spnr_lib::{
     log::{Log, LogState},
