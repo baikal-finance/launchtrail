@@ -81,7 +81,9 @@ jobs:
         echo RELEASE_TAG=${{ env.SHA_SHORT }} > dist/Makefile
         echo GITHUB_REPO=${{ github.repository }} >> dist/Makefile
         cat mk/Makefile.inc >> dist/Makefile
+        gzip -k dist/launchtrail.wasm
         shasum -a 256 dist/launchtrail.wasm > dist/launchtrail.wasm.sha256
+        shasum -a 256 dist/launchtrail.wasm.gz > dist/launchtrail.wasm.gz.sha256
         shasum -a 256 dist/canister-info > dist/canister-info-${{ matrix.name }}.sha256
         mv dist/canister-info dist/canister-info-${{ matrix.name }}
 
